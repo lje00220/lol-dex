@@ -1,17 +1,11 @@
 import { ItemWithId } from "@/types/Item";
+import { fetchItemList } from "@/utils/serverApi";
 import Image from "next/image";
-
-const URL =
-  "https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/item.json";
 
 const IMGURL = "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/item";
 
 const ItemPage = async () => {
-  const response = await fetch(URL, {
-    cache: "force-cache",
-  });
-
-  const { data } = await response.json();
+  const data = await fetchItemList();
   const items: ItemWithId[] = Object.entries(data);
   return (
     <div className="px-5">
