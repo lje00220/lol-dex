@@ -29,7 +29,7 @@ export const fetchChampionList = async (): Promise<object> => {
 
 export const fetchChampionDetail = async (name: string): Promise<object> => {
   const response = await fetch(
-    `https://ddragon.leagueoflegends.com/cdn/15.5.1/data/en_US/champion/${name}.json`,
+    `https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/champion/${name}.json`,
     { cache: "no-store" },
   );
 

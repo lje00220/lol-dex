@@ -39,11 +39,18 @@ export type ChampionDetail = {
   enemytips: string[];
   tags: string[];
   partype: string;
-  info: object;
+  info: Stat;
   stats: { [key: string]: number };
   spells: object[];
   passive: object;
   recommended: string[];
+};
+
+type Stat = {
+  attack: number;
+  defense: number;
+  magic: number;
+  difficulty: number;
 };
 
 export type ChampionWithId = [string, Champion];
