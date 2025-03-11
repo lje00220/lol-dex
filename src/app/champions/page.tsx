@@ -1,7 +1,45 @@
+import { ChampionWithId } from "@/types/champion";
+import { fetchChampionList } from "@/utils/serverApi";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-const ChampionPage = () => {
-  return <div>Champion Page</div>;
+const IMGURL = "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion";
+
+const ChampionPage = async () => {
+  const data = await fetchChampionList();
+  const champions: ChampionWithId[] = Object.entries(data);
+  return (
+    <div className="px-5">
+      <h2 className="my-5 text-3xl font-extrabold text-blue-300">
+        챔피언 목록
+      </h2>
+      <div className="grid grid-cols-6 gap-4">
+        {champions.map((champion) => {
+          const [id, championDetail] = champion;
+          return (
+            <Link
+              href={""}
+              key={id}
+              className="h-auto min-h-[250px] w-[180px] border-2 border-solid p-2"
+            >
+              <Image
+                src={`${IMGURL}/${id}.png`}
+                width={100}
+                height={100}
+                alt={championDetail.name}
+                className="mx-auto my-2"
+              />
+              <div className="text-lg font-bold text-blue-600">
+                {championDetail.name}
+              </div>
+              <div>{championDetail.title}</div>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default ChampionPage;

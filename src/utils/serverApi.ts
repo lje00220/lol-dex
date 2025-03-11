@@ -11,3 +11,18 @@ export const fetchItemList = async (): Promise<object> => {
   const { data } = await response.json();
   return data;
 };
+
+export const fetchChampionList = async (): Promise<object> => {
+  const response = await fetch(
+    "https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/champion.json",
+    {
+      next: {
+        revalidate: 86400,
+      },
+    },
+  );
+
+  // 타입 추가하기
+  const { data } = await response.json();
+  return data;
+};
