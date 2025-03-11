@@ -19,7 +19,7 @@ const ChampionPage = async () => {
           const [id, championDetail] = champion;
           return (
             <Link
-              href={""}
+              href={`/champions/${id}`}
               key={id}
               className="h-auto min-h-[250px] w-[180px] border-2 border-solid p-2"
             >
