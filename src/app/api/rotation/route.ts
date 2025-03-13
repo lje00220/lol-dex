@@ -19,6 +19,9 @@ export async function GET() {
     const result = rotation.map((r) =>
       championList.find((c) => Number(c[1].key) === r),
     );
+    console.log(result);
     return NextResponse.json(result);
-  } catch {}
+  } catch (error) {
+    console.log(error);
+  }
 }

@@ -1,19 +1,17 @@
 "use client";
 
-import { ChampionWithId } from "@/types/champion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+
+import { useRotations } from "../hooks/queries";
 
 const IMGURL = "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion";
 
 const RotationPage = () => {
-  const [rotations, setRotations] = useState<ChampionWithId[]>([]);
-  useEffect(() => {
-    fetch("http://localhost:3000/api/rotation")
-      .then((res) => res.json())
-      .then((data) => setRotations(data));
-  }, []);
+  const { data: rotations, isPending, isError } = useRotations();
+
+  if (isPending) return <div>Loading...</div>;
+  if (isError) return <div>Error</div>;
 
   return (
     <div className="grid grid-cols-6 gap-4">
