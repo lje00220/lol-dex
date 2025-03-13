@@ -1,5 +1,4 @@
 import { ChampionWithId } from "@/types/champion";
-import { fetchRotations } from "@/utils/serverApi";
 import { useQuery } from "@tanstack/react-query";
 
 export const useRotations = () => {
@@ -7,4 +6,10 @@ export const useRotations = () => {
     queryKey: ["rotations"],
     queryFn: fetchRotations,
   });
+};
+
+const fetchRotations = async (): Promise<ChampionWithId[]> => {
+  const response = await fetch("/api/rotation");
+  const data: ChampionWithId[] = await response.json();
+  return data;
 };
