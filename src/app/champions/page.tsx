@@ -1,4 +1,3 @@
-import { ChampionWithId } from "@/types/champion";
 import { fetchChampionList } from "@/utils/serverApi";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,8 +6,8 @@ import React from "react";
 const IMGURL = "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion";
 
 const ChampionPage = async () => {
-  const data = await fetchChampionList();
-  const champions: ChampionWithId[] = Object.entries(data);
+  const champions = await fetchChampionList();
+
   return (
     <div className="px-5">
       <h2 className="my-5 text-3xl font-extrabold text-blue-300">

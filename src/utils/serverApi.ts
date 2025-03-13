@@ -1,5 +1,7 @@
 "use server";
 
+import { ChampionDetail, ChampionWithId } from "@/types/champion";
+
 const URL =
   "https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/item.json";
 
@@ -12,7 +14,7 @@ export const fetchItemList = async (): Promise<object> => {
   return data;
 };
 
-export const fetchChampionList = async (): Promise<object> => {
+export const fetchChampionList = async (): Promise<ChampionWithId[]> => {
   const response = await fetch(
     "https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/champion.json",
     {
@@ -24,15 +26,19 @@ export const fetchChampionList = async (): Promise<object> => {
 
   // 타입 추가하기
   const { data } = await response.json();
-  return data;
+  const champions: ChampionWithId[] = Object.entries(data);
+  return champions;
 };
 
-export const fetchChampionDetail = async (name: string): Promise<object> => {
+export const fetchChampionDetail = async (
+  name: string,
+): Promise<ChampionDetail> => {
   const response = await fetch(
     `https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/champion/${name}.json`,
     { cache: "no-store" },
   );
 
   const { data } = await response.json();
-  return data;
+  const info: ChampionDetail = data[name];
+  return info;
 };

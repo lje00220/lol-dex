@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import Providers from "./provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,14 +31,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header>
-          <div className="flex flex-row justify-evenly items-center p-3 bg-slate-800 text-white">
+          <div className="flex flex-row items-center justify-evenly bg-slate-800 p-3 text-white">
             <Link href={"/"}>홈</Link>
             <Link href={"/champions"}>챔피언 목록</Link>
             <Link href={"/items"}>아이템 목록</Link>
             <Link href={"/rotation"}>챔피언 로테이션</Link>
           </div>
         </header>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -26,7 +26,7 @@ export type Info = {
   difficulty: number;
 };
 
-export type ChampionDetail = {
+export interface ChampionDetail {
   id: string;
   key: string;
   name: string;
@@ -44,7 +44,7 @@ export type ChampionDetail = {
   spells: object[];
   passive: object;
   recommended: string[];
-};
+}
 
 type Stat = {
   attack: number;

@@ -1,4 +1,3 @@
-import { ChampionDetail } from "@/types/champion";
 import { fetchChampionDetail } from "@/utils/serverApi";
 import Image from "next/image";
 import React from "react";
@@ -10,9 +9,7 @@ type Params = {
 };
 
 const ChampionDetailPage = async ({ params }: Params) => {
-  const data: any = await fetchChampionDetail(params.id);
-  const info: ChampionDetail = data[params.id];
-  console.log(info);
+  const info = await fetchChampionDetail(params.id);
   return (
     <div className="bg-black px-10">
       <div className="text-3xl font-extrabold text-red-600">{info.name}</div>
