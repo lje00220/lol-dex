@@ -14,9 +14,11 @@ export async function GET() {
     );
 
     const data = await response.json();
-    const rotation = data.freeChampionIds;
+    const rotation: number[] = data.freeChampionIds;
     const championList = await fetchChampionList();
-    const result = rotation.map((r) => championList.find((c) => c[1].key == r));
+    const result = rotation.map((r) =>
+      championList.find((c) => Number(c[1].key) === r),
+    );
     return NextResponse.json(result);
   } catch {}
 }
