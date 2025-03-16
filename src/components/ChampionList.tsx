@@ -1,3 +1,4 @@
+import { ROUTE } from "@/public/constants/route";
 import { ChampionWithId } from "@/types/champion";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +13,7 @@ const ChampionList = ({ champion }: ChampionProps) => {
   const [id, championDetail] = champion;
   return (
     <Link
-      href={`/champions/${id}`}
+      href={`${ROUTE.CHAMPION}/${id}`}
       className="flex h-auto min-h-[250px] max-w-[180px] flex-col items-center border-2 border-solid p-2"
     >
       <Image

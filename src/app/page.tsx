@@ -4,6 +4,7 @@ import championImg from "../public/assets/champions.jpeg";
 import itemImg from "../public/assets/items.jpeg";
 import rotationImg from "../public/assets/rotation.jpeg";
 import Image from "next/image";
+import { ROUTE } from "@/public/constants/route";
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
       </p>
       <div className="flex w-full flex-col items-center justify-center gap-6">
         <Link
-          href={"/champions"}
+          href={ROUTE.HOME}
           className="flex flex-col items-center justify-center gap-4"
         >
           <Image
@@ -28,9 +29,8 @@ const Home = () => {
           />
           <p className="text-center text-blue-500">챔피언 목록 보기</p>
         </Link>
-
         <Link
-          href={"/rotation"}
+          href={ROUTE.ROTATION}
           className="flex flex-col items-center justify-center gap-4"
         >
           <Image
@@ -44,7 +44,7 @@ const Home = () => {
         </Link>
 
         <Link
-          href={"/items"}
+          href={ROUTE.ITEM}
           className="flex flex-col items-center justify-center gap-4"
         >
           <Image
