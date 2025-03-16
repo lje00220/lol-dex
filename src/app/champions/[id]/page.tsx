@@ -1,3 +1,4 @@
+import Stat from "@/components/Stat";
 import { fetchChampionDetail } from "@/utils/serverApi";
 import Image from "next/image";
 import React from "react";
@@ -18,22 +19,33 @@ export function generateMetadata({ params }: Props) {
 const ChampionDetailPage = async ({ params }: Props) => {
   const info = await fetchChampionDetail(params.id);
   return (
-    <div className="bg-black px-10">
-      <div className="text-3xl font-extrabold text-red-600">{info.name}</div>
-      <div className="text-2xl font-bold text-gray-600">{info.title}</div>
+    <div className="flex min-h-screen flex-col items-center bg-white px-6 py-8">
+      <div className="text-center">
+        <div className="mb-5 text-4xl font-extrabold text-blue-800 sm:text-5xl">
+          {info.name}
+        </div>
+        <div className="text-2xl font-bold text-gray-500">{info.title}</div>
+      </div>
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${params.id}.png`}
         width={200}
         height={200}
         alt={info.name}
+        className="mt-4 h-auto w-[150px] sm:w-[200px]"
       />
-      <p className="text-red-600">{info.blurb}</p>
-      <div>
-        <ul className="text-xl font-bold text-red-600">스탯</ul>
-        <li className="text-red-600">공격력: {info.info.attack}</li>
-        <li className="text-red-600">방어력: {info.info.defense}</li>
-        <li className="text-red-600">마법력: {info.info.magic}</li>
-        <li className="text-red-600">난이도: {info.info.difficulty}</li>
+      <p className="mt-4 max-w-2xl px-4 text-center text-gray-500">
+        {info.blurb}
+      </p>
+      <div className="mt-6 w-full max-w-lg bg-gray-100 p-6 shadow-lg">
+        <p className="border-b pb-2 text-center text-2xl font-bold">
+          챔피언 스탯
+        </p>
+        <div className="mt-4 grid grid-cols-2 gap-4">
+          <Stat name="공격력" stat={info.info.attack} />
+          <Stat name="방어력" stat={info.info.defense} />
+          <Stat name="마법력" stat={info.info.magic} />
+          <Stat name="난이도" stat={info.info.difficulty} />
+        </div>
       </div>
     </div>
   );
