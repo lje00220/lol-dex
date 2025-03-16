@@ -42,11 +42,3 @@ export const fetchChampionDetail = async (
   const info: ChampionDetail = data[name];
   return info;
 };
-
-// export const fetchRotations = async (): Promise<ChampionWithId[]> => {
-//   console.log(1234);
-//   const response = await fetch("http://localhost:3000/api/rotation");
-//   const data: ChampionWithId[] = await response.json();
-//   console.log(data);
-//   return data;
-// };
