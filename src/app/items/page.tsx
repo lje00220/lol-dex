@@ -5,6 +5,7 @@ import { Suspense } from "react";
 
 const ItemPage = async () => {
   const items = await fetchItemList();
+
   return (
     <div className="px-5">
       <h2 className="my-5 text-3xl font-extrabold text-blue-300">

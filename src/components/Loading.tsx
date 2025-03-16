@@ -3,7 +3,7 @@ import { FadeLoader } from "react-spinners";
 
 const Loading = () => {
   return (
-    <div className="mt-16 flex items-center justify-center">
+    <div className="fixed inset-0 flex items-center justify-center">
       <FadeLoader />
     </div>
   );
