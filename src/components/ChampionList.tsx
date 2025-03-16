@@ -13,19 +13,19 @@ const ChampionList = ({ champion }: ChampionProps) => {
   return (
     <Link
       href={`/champions/${id}`}
-      className="h-auto min-h-[250px] w-[180px] border-2 border-solid p-2"
+      className="flex h-auto min-h-[250px] max-w-[180px] flex-col items-center border-2 border-solid p-2"
     >
       <Image
         src={`${IMGURL}/${id}.png`}
         width={100}
         height={100}
         alt={championDetail.name}
-        className="mx-auto my-2"
+        className="mx-auto my-2 h-auto w-full"
       />
-      <div className="text-lg font-bold text-blue-600">
+      <div className="text-center text-lg font-bold text-blue-600">
         {championDetail.name}
       </div>
-      <div>{championDetail.title}</div>
+      <div className="text-center">{championDetail.title}</div>
     </Link>
   );
 };

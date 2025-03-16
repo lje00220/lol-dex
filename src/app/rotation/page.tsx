@@ -14,7 +14,7 @@ const RotationPage = () => {
       <h2 className="my-5 text-3xl font-extrabold text-blue-300">
         챔피언 로테이션 (이번주 무료로 플레이 할 수 있어요!)
       </h2>
-      <div className="grid grid-cols-6 gap-4">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-10 gap-y-5">
         {rotations?.map((rotation) => (
           <ChampionList champion={rotation} key={rotation[0]} />
         ))}
