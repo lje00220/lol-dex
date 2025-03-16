@@ -2,13 +2,20 @@ import { fetchChampionDetail } from "@/utils/serverApi";
 import Image from "next/image";
 import React from "react";
 
-type Params = {
+type Props = {
   params: {
     id: string;
   };
 };
 
-const ChampionDetailPage = async ({ params }: Params) => {
+export function generateMetadata({ params }: Props) {
+  return {
+    title: `${params.id}`,
+    description: `Detail 페이지 : ${params.id}`,
+  };
+}
+
+const ChampionDetailPage = async ({ params }: Props) => {
   const info = await fetchChampionDetail(params.id);
   return (
     <div className="bg-black px-10">
