@@ -1,10 +1,9 @@
+import { IMG_URL } from "@/public/constants/image";
 import { ROUTE } from "@/public/constants/route";
 import { ChampionWithId } from "@/types/champion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
-const IMGURL = "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion";
 
 type ChampionProps = {
   champion: ChampionWithId;
@@ -17,7 +16,7 @@ const ChampionList = ({ champion }: ChampionProps) => {
       className="flex h-auto min-h-[250px] max-w-[180px] flex-col items-center border-2 border-solid p-2"
     >
       <Image
-        src={`${IMGURL}/${id}.png`}
+        src={`${IMG_URL}/champion/${id}.png`}
         width={100}
         height={100}
         alt={championDetail.name}

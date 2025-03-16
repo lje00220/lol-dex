@@ -1,3 +1,4 @@
+import { IMG_URL } from "@/public/constants/image";
 import { ItemWithId } from "@/types/Item";
 import Image from "next/image";
 import React from "react";
@@ -6,14 +7,12 @@ type Props = {
   item: ItemWithId;
 };
 
-const IMG_URL = "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/item";
-
 const ItemList = ({ item }: Props) => {
   const [id, itemDetail] = item;
   return (
     <div className="flex h-auto min-h-[250px] max-w-[180px] flex-col items-center border-2 border-solid p-2">
       <Image
-        src={`${IMG_URL}/${id}.png`}
+        src={`${IMG_URL}/item/${id}.png`}
         width={100}
         height={100}
         alt={itemDetail.name}

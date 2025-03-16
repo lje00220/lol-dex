@@ -1,4 +1,5 @@
 import Stat from "@/components/Stat";
+import { IMG_URL } from "@/public/constants/image";
 import { fetchChampionDetail } from "@/utils/serverApi";
 import Image from "next/image";
 import React from "react";
@@ -27,7 +28,7 @@ const ChampionDetailPage = async ({ params }: Props) => {
         <div className="text-2xl font-bold text-gray-500">{info.title}</div>
       </div>
       <Image
-        src={`https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${params.id}.png`}
+        src={`${IMG_URL}/champion/${params.id}.png`}
         width={200}
         height={200}
         alt={info.name}
