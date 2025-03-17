@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Provider from "./rotation/provider";
 import Header from "@/components/Header";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "리그 오브 레전드 정보 앱",
@@ -14,10 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body>
-        <Header />
-        <Provider>{children}</Provider>
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <Header />
+          <Provider>{children}</Provider>
+        </ThemeProvider>
       </body>
     </html>
   );

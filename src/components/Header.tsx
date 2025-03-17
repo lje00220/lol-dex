@@ -5,6 +5,8 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
+import ThemeChanger from "./ThemeToggle";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -16,6 +18,7 @@ const Header = () => {
           <Link href={ROUTE.ITEM}>아이템 목록</Link>
           <Link href={ROUTE.ROTATION}>챔피언 로테이션</Link>
         </nav>
+        <ThemeChanger />
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
           <Menu size={28} />
         </button>

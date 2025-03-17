@@ -20,7 +20,7 @@ export function generateMetadata({ params }: Props) {
 const ChampionDetailPage = async ({ params }: Props) => {
   const info = await fetchChampionDetail(params.id);
   return (
-    <div className="flex min-h-screen flex-col items-center bg-white px-6 py-8">
+    <div className="flex min-h-screen flex-col items-center px-6 py-8">
       <div className="text-center">
         <div className="mb-5 text-4xl font-extrabold text-blue-800 sm:text-5xl">
           {info.name}
@@ -37,7 +37,7 @@ const ChampionDetailPage = async ({ params }: Props) => {
       <p className="mt-4 max-w-2xl px-4 text-center text-gray-500">
         {info.blurb}
       </p>
-      <div className="mt-6 w-full max-w-lg bg-gray-100 p-6 shadow-lg">
+      <div className="mt-6 w-full max-w-lg p-6 shadow-lg">
         <p className="border-b pb-2 text-center text-2xl font-bold">
           챔피언 스탯
         </p>
