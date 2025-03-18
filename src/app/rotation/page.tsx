@@ -1,10 +1,17 @@
 "use client";
 
 import { useRotations } from "../hooks/queries";
-import ChampionList from "@/components/ChampionList";
+import ChampionCard from "@/components/ChampionCard";
 import Loading from "@/components/Loading";
 
+/**
+ * 로테이션 챔피언 페이지(CSR)
+ *
+ * @returns {JSX.Element}
+ */
+
 const RotationPage = () => {
+  // tanstack query 사용
   const { data: rotations, isPending } = useRotations();
 
   if (isPending) return <Loading />;
@@ -16,7 +23,7 @@ const RotationPage = () => {
       </h2>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-10 gap-y-5">
         {rotations?.map((rotation) => (
-          <ChampionList champion={rotation} key={rotation[0]} />
+          <ChampionCard champion={rotation} key={rotation[0]} />
         ))}
       </div>
     </div>

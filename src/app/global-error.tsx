@@ -3,6 +3,14 @@
 import { useRouter } from "next/navigation";
 import { startTransition } from "react";
 
+/**
+ * 글로벌 에러 처리 페이지
+ *
+ * @param {Error & { digest?: string }} props.error
+ * @param {() => void} props.reset
+ * @returns {JSX.Element}
+ */
+
 export default function Error({
   error,
   reset,

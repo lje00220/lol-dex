@@ -1,10 +1,3 @@
-// export type ChampionList = {
-//   type: Type;
-//   format: string;
-//   version: Version;
-//   data: { [key: string]: Champion };
-// };
-
 export type Champion = {
   version: string;
   id: string;

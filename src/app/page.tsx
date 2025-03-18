@@ -6,6 +6,12 @@ import rotationImg from "../public/assets/rotation.jpeg";
 import Image from "next/image";
 import { ROUTE } from "@/public/constants/route";
 
+/**
+ * 홈 페이지(메인 페이지)
+ *
+ * @returns {JSX.Element}
+ */
+
 const Home = () => {
   return (
     <div className="mb-5 flex flex-col items-center justify-center gap-5 px-4">
@@ -42,7 +48,6 @@ const Home = () => {
           />
           <p className="text-center text-blue-500">금주 로테이션 확인</p>
         </Link>
-
         <Link
           href={ROUTE.ITEM}
           className="flex flex-col items-center justify-center gap-4"

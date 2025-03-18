@@ -1,5 +1,5 @@
 import Stat from "@/components/Stat";
-import { IMG_URL } from "@/public/constants/image";
+import { IMG_URL } from "@/public/constants/url";
 import { fetchChampionDetail } from "@/utils/serverApi";
 import Image from "next/image";
 import React from "react";
@@ -10,6 +10,14 @@ type Props = {
   };
 };
 
+/**
+ * 챔피언 상세정보 페이지
+ *
+ * @param {string} props.params.id
+ * @returns {JSX.Element}
+ */
+
+// 메타 데이터 설정
 export function generateMetadata({ params }: Props) {
   return {
     title: `${params.id}`,

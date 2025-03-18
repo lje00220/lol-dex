@@ -1,4 +1,4 @@
-import { IMG_URL } from "@/public/constants/image";
+import { IMG_URL } from "@/public/constants/url";
 import { ItemWithId } from "@/types/Item";
 import Image from "next/image";
 import React from "react";
@@ -7,7 +7,14 @@ type Props = {
   item: ItemWithId;
 };
 
-const ItemList = ({ item }: Props) => {
+/**
+ * 아이템 카드를 출력하는 컴포넌트
+ *
+ * @param {ItemWithId} item
+ * @returns {JSX.Element}
+ */
+
+const ItemCard = ({ item }: Props) => {
   const [id, itemDetail] = item;
   return (
     <div className="flex h-auto min-h-[250px] max-w-[180px] flex-col items-center border-2 border-solid p-2">
@@ -26,4 +33,4 @@ const ItemList = ({ item }: Props) => {
   );
 };
 
-export default ItemList;
+export default ItemCard;

@@ -1,13 +1,12 @@
 "use server";
 
+import { FETCH_URL } from "@/public/constants/url";
 import { ChampionDetail, ChampionWithId } from "@/types/champion";
 import { ItemWithId } from "@/types/Item";
 
-const URL =
-  "https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/item.json";
-
+// 아이템 리스트를 받아오는 fetch 함수
 export const fetchItemList = async (): Promise<ItemWithId[]> => {
-  const response = await fetch(URL, {
+  const response = await fetch(`${FETCH_URL}/item.json`, {
     cache: "force-cache",
   });
 
@@ -16,29 +15,26 @@ export const fetchItemList = async (): Promise<ItemWithId[]> => {
   return items;
 };
 
+// 챔피언 리스트를 받아오는 fetch 함수
 export const fetchChampionList = async (): Promise<ChampionWithId[]> => {
-  const response = await fetch(
-    "https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/champion.json",
-    {
-      next: {
-        revalidate: 86400,
-      },
+  const response = await fetch(`${FETCH_URL}/champion.json`, {
+    next: {
+      revalidate: 86400,
     },
-  );
+  });
 
-  // 타입 추가하기
   const { data } = await response.json();
   const champions: ChampionWithId[] = Object.entries(data);
   return champions;
 };
 
+// 챔피언 상세 정보를 받아오는 fetch 함수
 export const fetchChampionDetail = async (
   name: string,
 ): Promise<ChampionDetail> => {
-  const response = await fetch(
-    `https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/champion/${name}.json`,
-    { cache: "no-store" },
-  );
+  const response = await fetch(`${FETCH_URL}/${name}.json`, {
+    cache: "no-store",
+  });
 
   const { data } = await response.json();
   const info: ChampionDetail = data[name];

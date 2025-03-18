@@ -1,4 +1,4 @@
-import { IMG_URL } from "@/public/constants/image";
+import { IMG_URL } from "@/public/constants/url";
 import { ROUTE } from "@/public/constants/route";
 import { ChampionWithId } from "@/types/champion";
 import Image from "next/image";
@@ -8,7 +8,15 @@ import React from "react";
 type ChampionProps = {
   champion: ChampionWithId;
 };
-const ChampionList = ({ champion }: ChampionProps) => {
+
+/**
+ * 챔피언 카드를 출력하는 컴포넌트
+ *
+ * @param {ChampionWithId} champion
+ * @returns {JSX.Element}
+ */
+
+const ChampionCard = ({ champion }: ChampionProps) => {
   const [id, championDetail] = champion;
   return (
     <Link
@@ -30,4 +38,4 @@ const ChampionList = ({ champion }: ChampionProps) => {
   );
 };
 
-export default ChampionList;
+export default ChampionCard;

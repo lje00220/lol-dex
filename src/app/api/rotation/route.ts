@@ -1,6 +1,8 @@
 import { fetchChampionList } from "@/utils/serverApi";
 import { NextResponse } from "next/server";
 
+// 라우트 핸들러
+
 export async function GET() {
   const response = await fetch(
     "https://kr.api.riotgames.com/lol/platform/v3/champion-rotations",
@@ -13,10 +15,10 @@ export async function GET() {
   );
 
   const data = await response.json();
-  const rotation: number[] = data.freeChampionIds;
+  const rotations: number[] = data.freeChampionIds;
   const championList = await fetchChampionList();
-  const result = rotation?.map((r) =>
-    championList.find((c) => Number(c[1].key) === r),
+  const result = rotations?.map((rotation) =>
+    championList.find((champion) => Number(champion[1].key) === rotation),
   );
 
   return NextResponse.json(result);
