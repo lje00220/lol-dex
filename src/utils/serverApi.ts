@@ -32,7 +32,7 @@ export const fetchChampionList = async (): Promise<ChampionWithId[]> => {
 export const fetchChampionDetail = async (
   name: string,
 ): Promise<ChampionDetail> => {
-  const response = await fetch(`${FETCH_URL}/${name}.json`, {
+  const response = await fetch(`${FETCH_URL}/champion/${name}.json`, {
     cache: "no-store",
   });
 
