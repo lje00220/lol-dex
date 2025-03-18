@@ -23,7 +23,7 @@ const Home = () => {
       </p>
       <div className="flex w-full flex-col items-center justify-center gap-6">
         <Link
-          href={ROUTE.HOME}
+          href={ROUTE.CHAMPION}
           className="flex flex-col items-center justify-center gap-4"
         >
           <Image
