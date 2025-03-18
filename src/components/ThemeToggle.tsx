@@ -33,7 +33,7 @@ const ThemeChanger = () => {
   };
 
   return (
-    <div>
+    <div className="ml-auto">
       <button onClick={handleTheme}>
         {theme === "light" ? <Moon /> : <Sun />}
       </button>
